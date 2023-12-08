@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Eletiva</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <center>
+        <h1>Receitas</h1>
+    </center>
+
+    <!-- Blog Posts -->
+    {% for post in posts %}
+    <div class="container">
+        <h1 class="titulo">{{ post.titulo }}</h1>
+        <p class="texto">{{ post.conteudo }}</p>
+        <div class="data">
+            <p class="dt">{{ post.data }}</p>
+        </div>
+        <!-- Atualizado: Adicione um link para ver detalhes da receita -->
+        <a class="link" href="{{ url_for('mostrar_receita', receita_id=post.id) }}">Ver detalhes</a>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+
+</html>
